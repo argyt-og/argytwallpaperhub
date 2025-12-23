@@ -1,1 +1,220 @@
+/* ================= REAL NEON BLUE BACKGROUND ================= */
+.neon-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0,102,255,0.18), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(30,144,255,0.18), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0,71,255,0.14), transparent 45%);
+  animation: neonMove 14s ease-in-out infinite alternate;
+  z-index: -1;
+}
 
+@keyframes neonMove {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  background: #000;
+  color: #e6f0ff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-top: 20px;
+  color: #1e90ff;
+  text-shadow:
+    0 0 10px #1e90ff,
+    0 0 22px #0066ff,
+    0 0 40px rgba(0,102,255,0.9);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #a8c8ff;
+  margin-bottom: 15px;
+}
+
+/* ================= SEARCH ================= */
+#search {
+  width: 85%;
+  max-width: 360px;
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: #05070f;
+  color: #e6f0ff;
+  margin-bottom: 15px;
+  box-shadow:
+    0 0 12px rgba(0,102,255,0.9),
+    inset 0 0 8px rgba(30,144,255,0.6);
+}
+
+/* ================= CATEGORIES ================= */
+#categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+#categories button {
+  padding: 7px 16px;
+  border-radius: 20px;
+  background: transparent;
+  color: #e6f0ff;
+  border: 1px solid #1e90ff;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,102,255,0.8);
+  transition: 0.3s ease;
+}
+
+#categories button:hover {
+  background: rgba(0,102,255,0.15);
+  box-shadow: 0 0 18px #0066ff;
+}
+
+/* ================= GALLERY GRID ================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 14px;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #05070f;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,102,255,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 32px rgba(0,102,255,1);
+}
+
+/* ================= IMAGE ================= */
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 18px;
+  color: #1e90ff;
+}
+
+.heart {
+  cursor: pointer;
+  user-select: none;
+  font-size: 22px;
+  text-shadow: 0 0 12px #0066ff;
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #1e90ff;
+  text-decoration: none;
+  text-shadow: 0 0 12px #0066ff;
+}
+
+/* ================= LOADER ================= */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.neon-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid #1e90ff;
+  border-right: 4px solid #0066ff;
+  animation: spin 1s linear infinite;
+  box-shadow:
+    0 0 25px #0066ff,
+    0 0 25px #1e90ff;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+#loader p {
+  margin-top: 15px;
+  color: #1e90ff;
+  text-shadow: 0 0 15px #0066ff;
+}
+
+/* ================= PREVIEW ================= */
+#preview {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#preview img {
+  max-width: 92%;
+  max-height: 92%;
+  border-radius: 20px;
+  box-shadow:
+    0 0 35px #0066ff,
+    0 0 55px rgba(0,102,255,0.95);
+}
+
+#close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #1e90ff;
+  text-shadow: 0 0 20px #0066ff;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  padding: 15px;
+  font-size: 13px;
+  color: #9bbcff;
+  }
