@@ -1,0 +1,18 @@
+[
+  {
+    "file": "wallpapers/cars/car1.jpg",
+    "tags": ["car", "sports", "luxury"]
+  },
+  {
+    "file": "wallpapers/cars/car2.jpg",
+    "tags": ["car", "dark"]
+  },
+  {
+    "file": "wallpapers/bikes/bike1.jpg",
+    "tags": ["bike", "sports"]
+  },
+  {
+    "file": "wallpapers/bikes/bike2.jpg",
+    "tags": ["bike", "luxury"]
+  }
+]
