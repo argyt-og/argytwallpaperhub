@@ -11,8 +11,8 @@
 }
 
 @keyframes neonMove {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }
 
 /* ================= BASE ================= */
@@ -22,6 +22,7 @@ body {
   color: #e6f0ff;
   text-align: center;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -72,7 +73,7 @@ h1 {
   border: 1px solid #1e90ff;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0,102,255,0.8);
-  transition: 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 #categories button:hover {
@@ -96,6 +97,7 @@ h1 {
 
 /* ================= CARD ================= */
 .card {
+  width: 100%; /* CRITICAL FIX */
   background: #05070f;
   border-radius: 18px;
   overflow: hidden;
@@ -114,6 +116,7 @@ h1 {
   height: 220px;
   object-fit: cover;
   cursor: pointer;
+  display: block;
   transition: transform 0.3s ease;
 }
 
@@ -125,6 +128,7 @@ h1 {
 .actions {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 14px;
   font-size: 18px;
   color: #1e90ff;
@@ -137,6 +141,7 @@ h1 {
   text-shadow: 0 0 12px #0066ff;
 }
 
+/* Download button (icon + text) */
 .download {
   display: flex;
   align-items: center;
@@ -145,6 +150,11 @@ h1 {
   color: #1e90ff;
   text-decoration: none;
   text-shadow: 0 0 12px #0066ff;
+}
+
+.download span {
+  display: inline-block; /* FIX */
+  line-height: 1;
 }
 
 /* ================= LOADER ================= */
@@ -173,7 +183,7 @@ h1 {
 }
 
 @keyframes spin {
-  100% { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
 #loader p {
@@ -217,4 +227,4 @@ footer {
   padding: 15px;
   font-size: 13px;
   color: #9bbcff;
-  }
+}
