@@ -1,18 +1,18 @@
 [
   {
-    "file": "wallpapers/cars/car1.jpg",
-    "tags": ["car", "sports", "luxury"]
+    "file": "wallpapers/cars/dp1.jpg",
+    "tags": ["car", "sports"]
   },
   {
-    "file": "wallpapers/cars/car2.jpg",
-    "tags": ["car", "dark"]
+    "file": "wallpapers/cars/dp2.jpg",
+    "tags": ["car", "luxury"]
   },
   {
-    "file": "wallpapers/bikes/bike1.jpg",
+    "file": "wallpapers/bikes/dp1.jpg",
     "tags": ["bike", "sports"]
   },
   {
-    "file": "wallpapers/bikes/bike2.jpg",
-    "tags": ["bike", "luxury"]
+    "file": "wallpapers/bikes/dp2.jpg",
+    "tags": ["bike", "dark"]
   }
 ]
