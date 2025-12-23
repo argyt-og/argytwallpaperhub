@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,54 +19,31 @@
 
 <!-- HEADER -->
 <h1>ARG YT WALLPAPER HUB</h1>
-<p class="subtitle">Android & Desktop Wallpapers</p>
+<p class="subtitle">Cars & Bikes Wallpapers</p>
 
 <!-- SEARCH -->
 <input
   type="text"
   id="search"
-  placeholder="Search wallpapers..."
+  placeholder="Search cars or bikes..."
   autocomplete="off"
 />
 
 <!-- CATEGORIES -->
 <div id="categories">
-  <button data-cat="all">All</button>
-  <button data-cat="anime">Anime</button>
-  <button data-cat="dark">Dark</button>
-  <button data-cat="nature">Nature</button>
-  <button data-cat="abstract">Abstract</button>
+  <button onclick="filterCat('all')">All</button>
+  <button onclick="filterCat('car')">Cars</button>
+  <button onclick="filterCat('bike')">Bikes</button>
+  <button onclick="filterCat('sports')">Sports</button>
+  <button onclick="filterCat('luxury')">Luxury</button>
 </div>
 
-<!-- GALLERY -->
-<div class="gallery" id="gallery">
-
-  <!-- SAMPLE CARD (you can remove later when using JSON) -->
-  <div class="card" data-tags="anime dark android">
-    <img src="wallpapers/android/a1.jpg" alt="Wallpaper">
-    <div class="actions">
-      <span class="heart">♡</span>
-      <a href="wallpapers/android/a1.jpg" download class="download">
-        ⬇ <span>Download</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="card" data-tags="nature desktop">
-    <img src="wallpapers/desktop/d1.jpg" alt="Wallpaper">
-    <div class="actions">
-      <span class="heart">♡</span>
-      <a href="wallpapers/desktop/d1.jpg" download class="download">
-        ⬇ <span>Download</span>
-      </a>
-    </div>
-  </div>
-
-</div>
+<!-- GALLERY (AUTO-LOADED FROM JSON) -->
+<div class="gallery" id="gallery"></div>
 
 <!-- FULLSCREEN PREVIEW -->
 <div id="preview">
-  <span id="close">✕</span>
+  <span id="close" onclick="closePreview()">✕</span>
   <img id="previewImg" alt="Preview">
 </div>
 
