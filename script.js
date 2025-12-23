@@ -1,44 +1,69 @@
-// Hide loader safely
+/* ================= LOADER ================= */
+// Fade out loader safely when page is fully loaded
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
-  if (loader) loader.style.display = "none";
+  if (!loader) return;
+
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 400);
 });
 
-// Like button (heart only)
+
+/* ================= LIKE BUTTON ================= */
+// Heart symbol only (♡ / ❤️)
 function toggleLike(el) {
   el.textContent = el.textContent === "♡" ? "❤️" : "♡";
 }
 
-// Open preview
+
+/* ================= PREVIEW ================= */
+// Open fullscreen preview
 function openPreview(src) {
   const preview = document.getElementById("preview");
   const img = document.getElementById("previewImg");
+
+  if (!preview || !img) return;
+
+  img.src = src;
   preview.style.display = "flex";
   preview.style.pointerEvents = "auto";
-  img.src = src;
 }
 
-// Close preview
+// Close fullscreen preview
 function closePreview() {
   const preview = document.getElementById("preview");
+  if (!preview) return;
+
   preview.style.display = "none";
   preview.style.pointerEvents = "none";
 }
 
-// Search wallpapers
+
+/* ================= SEARCH ================= */
 function searchWallpapers() {
-  const val = document.getElementById("search").value.toLowerCase();
+  const input = document.getElementById("search");
+  if (!input) return;
+
+  const val = input.value.toLowerCase();
+
   document.querySelectorAll(".card").forEach(card => {
-    card.style.display = card.dataset.tags.includes(val) ? "" : "none";
+    const tags = card.dataset.tags || "";
+    card.style.display = tags.includes(val) ? "" : "none";
   });
 }
 
-// Filter by category
+
+/* ================= CATEGORY FILTER ================= */
 function filterCat(cat) {
   document.querySelectorAll(".card").forEach(card => {
-    card.style.display =
-      cat === "all" || card.dataset.tags.includes(cat)
-        ? ""
-        : "none";
+    const tags = card.dataset.tags || "";
+
+    if (cat === "all" || tags.includes(cat)) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
   });
 }
