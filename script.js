@@ -67,3 +67,35 @@ function filterCat(cat) {
     }
   });
 }
+
+
+/* ================= AUTO LOAD WALLPAPERS (IMPORTANT) ================= */
+fetch("wallpapers.json")
+  .then(res => res.json())
+  .then(data => {
+    const gallery = document.getElementById("gallery");
+    if (!gallery) return;
+
+    gallery.innerHTML = "";
+
+    data.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.dataset.tags = item.tags.join(" ");
+
+      card.innerHTML = `
+        <img src="${item.file}" alt="Wallpaper" onclick="openPreview(this.src)">
+        <div class="actions">
+          <span class="heart" onclick="toggleLike(this)">♡</span>
+          <a href="${item.file}" download class="download">
+            ⬇ <span>Download</span>
+          </a>
+        </div>
+      `;
+
+      gallery.appendChild(card);
+    });
+  })
+  .catch(err => {
+    console.error("Wallpaper load error:", err);
+  });
