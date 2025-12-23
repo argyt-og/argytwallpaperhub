@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,38 +9,44 @@
 </head>
 <body>
 
+<!-- NEON BACKGROUND -->
 <div class="neon-bg"></div>
 
+<!-- LOADER -->
 <div id="loader">
   <div class="neon-ring"></div>
   <p>Loading Wallpapers...</p>
 </div>
 
+<!-- HEADER -->
 <h1>ARG YT WALLPAPER HUB</h1>
 <p class="subtitle">Android & Desktop Wallpapers</p>
 
+<!-- SEARCH -->
 <input
   type="text"
   id="search"
   placeholder="Search wallpapers..."
-  onkeyup="searchWallpapers()"
   autocomplete="off"
 />
 
+<!-- CATEGORIES -->
 <div id="categories">
-  <button onclick="filterCat('all')">All</button>
-  <button onclick="filterCat('anime')">Anime</button>
-  <button onclick="filterCat('dark')">Dark</button>
-  <button onclick="filterCat('nature')">Nature</button>
-  <button onclick="filterCat('abstract')">Abstract</button>
+  <button data-cat="all">All</button>
+  <button data-cat="anime">Anime</button>
+  <button data-cat="dark">Dark</button>
+  <button data-cat="nature">Nature</button>
+  <button data-cat="abstract">Abstract</button>
 </div>
 
+<!-- GALLERY -->
 <div class="gallery" id="gallery">
 
+  <!-- SAMPLE CARD (you can remove later when using JSON) -->
   <div class="card" data-tags="anime dark android">
-    <img src="wallpapers/android/a1.jpg" onclick="openPreview(this.src)">
+    <img src="wallpapers/android/a1.jpg" alt="Wallpaper">
     <div class="actions">
-      <span class="heart" onclick="toggleLike(this)">♡</span>
+      <span class="heart">♡</span>
       <a href="wallpapers/android/a1.jpg" download class="download">
         ⬇ <span>Download</span>
       </a>
@@ -47,9 +54,9 @@
   </div>
 
   <div class="card" data-tags="nature desktop">
-    <img src="wallpapers/desktop/d1.jpg" onclick="openPreview(this.src)">
+    <img src="wallpapers/desktop/d1.jpg" alt="Wallpaper">
     <div class="actions">
-      <span class="heart" onclick="toggleLike(this)">♡</span>
+      <span class="heart">♡</span>
       <a href="wallpapers/desktop/d1.jpg" download class="download">
         ⬇ <span>Download</span>
       </a>
@@ -58,49 +65,18 @@
 
 </div>
 
+<!-- FULLSCREEN PREVIEW -->
 <div id="preview">
-  <span id="close" onclick="closePreview()">✕</span>
-  <img id="previewImg">
+  <span id="close">✕</span>
+  <img id="previewImg" alt="Preview">
 </div>
 
+<!-- FOOTER -->
 <footer>
   © 2025 ARG YT WALLPAPER HUB | Powered by GitHub Pages
 </footer>
 
-<script>
-window.onload = () => {
-  document.getElementById("loader").style.display = "none";
-};
-
-function toggleLike(el) {
-  el.textContent = el.textContent === "♡" ? "❤️" : "♡";
-}
-
-function openPreview(src) {
-  document.getElementById("preview").style.display = "flex";
-  document.getElementById("previewImg").src = src;
-}
-
-function closePreview() {
-  document.getElementById("preview").style.display = "none";
-}
-
-function searchWallpapers() {
-  let val = document.getElementById("search").value.toLowerCase();
-  document.querySelectorAll(".card").forEach(card => {
-    card.style.display = card.dataset.tags.includes(val) ? "block" : "none";
-  });
-}
-
-function filterCat(cat) {
-  document.querySelectorAll(".card").forEach(card => {
-    card.style.display =
-      cat === "all" || card.dataset.tags.includes(cat)
-      ? "block"
-      : "none";
-  });
-}
-</script>
-
+<!-- SCRIPT -->
+<script src="script.js"></script>
 </body>
 </html>
